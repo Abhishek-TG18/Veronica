@@ -6,25 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="s_style.css">
-    <link rel="shortcut icon" href="../img/logo-dark.png" type="image/x-icon">
-    <script type="module" src="./firebaseauth.js"></script>
-    <title>Viora</title>
-    <script type="module" src="./index.js"></script>
-    <style>
-        .mask3 {
-            -webkit-mask-image: linear-gradient(black, transparent);
-            mask-image: linear-gradient(black, transparent);
-        }
-    </style>
+    <title>Modern Login Page | AsmrProg</title>
 </head>
 
-<body class="bg-gray-200">
+<body>
 
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form>
                 <h1>Create Account</h1>
-                
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
@@ -32,15 +22,10 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registeration</span>
-                <input id="name" type="text" placeholder="Name">
-                <input id="email" type="email" placeholder="Email">
-                <input id="pass" type="password" placeholder="Password">
-                <select name="" id="selectrole">
-                    <option value="role">Select Role</option>
-                    <option value="user">User</option>
-                    <option value="buissness">Buissness</option>
-                </select>
-                <button id="Sign--up">Sign Up</button>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -53,22 +38,20 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <input id="sigemail" type="email" placeholder="Email">
-                <input id="sinpass" type="password" placeholder="Password">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
-                <button id="Sign--in">Sign In</button>
+                <button>Sign In</button>
             </form>
         </div>
-        <div class="toggle-container ">
+        <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <img src="../images-viora/yeBTsj-viora-o0g4.webp" height="80" width="80" alt="">
                     <h1>Welcome Back!</h1>
                     <p>Enter your personal details to use all of site features</p>
                     <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <img src="../images-viora/yeBTsj-viora-o0g4.webp" height="80" width="80" alt="">
                     <h1>Hello, Friend!</h1>
                     <p>Register with your personal details to use all of site features</p>
                     <button class="hidden" id="register">Sign Up</button>
