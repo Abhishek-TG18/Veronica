@@ -25,6 +25,7 @@
                 <input type="text" placeholder="Name">
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
+                <input type="password" placeholder="Confirm Password" id="confirm-password">
                 <button>Sign Up</button>
             </form>
         </div>
@@ -63,6 +64,83 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        const email1 = document.querySelector("#email1");
+        const password1 = document.querySelector("#password1");
+        const btn2 = document.querySelector("#btn2");
+
+        const name = document.querySelector("#name");
+        const email = document.querySelector("#email");
+        const password = document.querySelector("#password");
+        const confirmPassword = document.querySelector("#confirm-password");
+        const btn1 = document.querySelector("#btn1");
+
+        btn1.addEventListener("click", () => {
+            if (password.value !== confirmPassword.value) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            const userData = {
+                name: name.value,
+                email: email.value,
+                password: password.value,
+                confirmPassword: confirmPassword.value, // Include confirmPassword
+            };
+
+            console.log("Sign Up Data:", userData);
+            SignInUser(userData);
+        });
+
+        btn2.addEventListener("click", () => {
+            const loginData = {
+                email: email1.value,
+                password: password1.value,
+            };
+            console.log("Sign In Data:", loginData);
+            loginUser(loginData);
+        });
+
+        const loginUser = async (user) => {
+            try {
+                const res = await fetch("http://localhost:8000/api/auth/signin", {
+                    method: "POST",
+                    credentials: "include",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(user)
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    window.location.href = "./main.html";
+                } else {
+                    alert(data.message);
+                }
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        };
+
+        const SignInUser = async (user) => {
+            try {
+                const res = await fetch("http://localhost:8000/api/auth/signup", {
+                    method: "POST",
+                    credentials: "include",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(user)
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    window.location.href = "./main.html";
+                } else {
+                    alert(data.message);
+                }
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        };
+    </script>
 </body>
 
 </html>
