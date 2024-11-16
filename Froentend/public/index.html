@@ -1,14 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="output.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viora</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .custom-border{
+        border-radius: 19% 81% 55% 45% / 28% 47% 53% 72% ;
+    }
+    .mask3 {
+        -webkit-mask-image: linear-gradient(black, transparent);
+        mask-image: linear-gradient(black, transparent);
+    }
+</style>
 </head>
-<body>
+<body class="bg-white">
 
-    <h1 class="bg-slate-600">HELLO</h1>
-    
+  <!-- Header Section -->
+  <header class="flex justify-between items-center p-5 bg-white shadow-md">
+    <div class="flex items-center ml-32 ">
+      <img src="../images-viora/yeBTsj-viora-ob4W.webp" alt="Viora Logo" class="h-8">
+      <h1 class="ml-4 text-xl font-bold ">Viora</h1>
+    </div>
+    <button class="hidden md:block px-6 py-2 bg-black text-white rounded hover:bg-gray-800 mr-32">Get Started</button>
+  </header>
+
+  <!-- Main Section -->
+  <main class="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-12 ml-20 mr-20 mt-20">
+    <!-- Text Content -->
+    <div class="md:w-1/2 text-center md:text-left space-y-6">
+      <h2 class="text-5xl font-bold leading-tight mb-14">
+        Travel Like a Local, <br>Impact Like a Friend
+      </h2>
+      <p class="text-gray-600">
+        Transform your journey with AI-powered personalized itineraries and responsible travel insights.
+        Experience authentic cultural adventures while preserving the places you visit.
+      </p>
+      <button class="px-6 py-3 bg-black text-white rounded hover:bg-gray-800">Start Your Journey</button>
+      <div class="flex items-center space-x-2 mt-4">
+        <!-- Avatar Group -->
+        <div class="flex -space-x-2">
+          <img src="../images-viora/4.jpg" alt="User 1" class="w-8 h-8 rounded-full border border-white">
+          <img src="../images-viora/5.jpg" alt="User 2" class="w-8 h-8 rounded-full border border-white">
+          <img src="../images-viora/51.jpg" alt="User 3" class="w-8 h-8 rounded-full border border-white">
+          <img src="../images-viora/7.jpg" alt="User 4" class="w-8 h-8 rounded-full border border-white">
+        </div>
+        <p class="text-gray-600 text-sm">
+          50k+ conscious travelers exploring authentically
+        </p>
+      </div>
+    </div>
+
+    <!-- Image Content -->
+    <div class="md:w-1/2 flex justify-center">
+      <img src="../images-viora/yeBTsj-viora-o0g4.webp" alt="Illustration" class="w-full max-w-md custom-border mask3">
+    </div>
+  </main>
+
+
+
+  <!-- Section Container -->
+   <!-- Footer Section -->
+  <footer class="text-center py-8">
+      <span class="text-gray-500">Featured on</span>
+      <div class="flex justify-center space-x-8 mt-4 mb-14">
+          <img src="../images-viora/afwBIFK.png" alt="Product Hunt" class="h-8">
+          <img src="../images-viora/j8jPb4H.png" alt="Hacker News" class="h-8">
+          <img src="../images-viora/LlloOPa.png" alt="X/Twitter" class="h-8">
+          <img src="../images-viora/mJ1sZFv.png" alt="Reddit" class="h-8">
+      </div>
+  </footer>
+
+    <!-- Headline -->
+    <h1 class="text-3xl sm:text-4xl lg:text-3xl font-bold mt-14 mb-20 ml-32 mr-32">
+      85% of travelers waste 8-10 hours planning a single trip, while 74% still end up in tourist traps
+    </h1>
+
+    <!-- Problems Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center ml-32 mr-32">
+      <!-- Problem 1 -->
+      <div class="text-center ml-36">
+        <div class="text-5xl mb-4 ">😫</div>
+        <p class="text-lg font-medium">
+          Spending hours researching and still feeling uncertain about travel plans
+        </p>
+      </div>
+      <!-- Problem 2 -->
+      <div class="text-center ml-14 mr-14">
+        <div class="text-5xl mb-4">😤</div>
+        <p class="text-lg font-medium">
+          Getting stuck in tourist traps and missing authentic experiences
+        </p>
+      </div>
+      <!-- Problem 3 -->
+      <div class="text-center mr-36">
+        <div class="text-5xl mb-4">😔</div>
+        <p class="text-lg font-medium">
+          Worrying about contributing to over-tourism and cultural degradation
+        </p>
+      </div>
+    </div>
+
+
+
+  <!-- Section Container -->
+  <div class="max-w-5xl mx-auto px-6 sm:px-12 py-12 text-center mt-20">
+    <!-- Easier Way Text -->
+    <p class="text-gray-500 font-medium mb-14">
+      ↓ there is an easier way
+    </p>
+
+    <!-- Heading -->
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-20">
+      Your Journey to Authentic Travel
+    </h1>
+
+    <!-- Steps Section -->
+    <div class="grid grid-cols-1 gap-8 text-left sm:grid-cols-2 lg:grid-cols-2">
+      <!-- Step 1 -->
+      <div class="flex items-start space-x-4 m-12">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-lg font-bold text-gray-600">1</div>
+        <div>
+          <h2 class="font-semibold text-xl">Share Your Travel Style</h2>
+          <p class="text-gray-500">
+            Tell us about your interests, preferences, and travel goals.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex items-start space-x-4 m-12">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-lg font-bold text-gray-600">2</div>
+        <div>
+          <h2 class="font-semibold text-xl">Get Personalized Plans</h2>
+          <p class="text-gray-500">
+            Receive AI-crafted itineraries tailored to your unique style.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex items-start space-x-4 m-12">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-lg font-bold text-gray-600">3</div>
+        <div>
+          <h2 class="font-semibold text-xl">Explore Responsibly</h2>
+          <p class="text-gray-500">
+            Use the Cultural Impact Meter to make conscious travel choices.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex items-start space-x-4 m-12">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-lg font-bold text-gray-600">4</div>
+        <div>
+          <h2 class="font-semibold text-xl">Create Memories</h2>
+          <p class="text-gray-500">
+            Experience authentic adventures and collect cultural quest rewards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Header -->
+  <header class="text-center py-10 mt-20">
+    <h1 class="text-4xl font-bold text-gray-800">Explore Like Never Before</h1>
+    <p class="mt-4 text-gray-600">Discover how Viora transforms your travel experience with smart technology and conscious exploration</p>
+  </header>
+
+  <!-- Features Section -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-16 pb-10 ml-32 mr-32 mt-20">
+    <!-- AI-Powered Personalization -->
+    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+      
+      <h2 class="mt-4 text-xl font-semibold text-gray-800">AI-Powered Personalization</h2>
+      <p class="mt-2 text-gray-600">Get tailored itineraries based on your unique preferences, travel style, and budget using advanced AI technology.</p>
+    </div>
+
+    <!-- Smart Crowd Monitoring -->
+    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+      
+      <h2 class="mt-4 text-xl font-semibold text-gray-800">Smart Crowd Monitoring</h2>
+      <p class="mt-2 text-gray-600">Avoid tourist bottlenecks with real-time crowd monitoring and get suggestions for less crowded alternatives.</p>
+    </div>
+
+    <!-- Cultural Impact Meter -->
+    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+      
+      <h2 class="mt-4 text-xl font-semibold text-gray-800">Cultural Impact Meter</h2>
+      <p class="mt-2 text-gray-600">Make responsible travel choices with a unique meter that shows the cultural and environmental impact of your activities.</p>
+    </div>
+
+    <!-- Cultural Quests -->
+    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+      
+      <h2 class="mt-4 text-xl font-semibold text-gray-800">Cultural Quests</h2>
+      <p class="mt-2 text-gray-600">Turn your journey into an adventure with gamified cultural challenges that make exploring new places fun and rewarding.</p>
+    </div>
+
+    <!-- Local Insights -->
+    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+      
+      <h2 class="mt-4 text-xl font-semibold text-gray-800">Local Insights</h2>
+      <p class="mt-2 text-gray-600">Access real-time recommendations from locals to discover hidden gems and authentic experiences off the tourist track.</p>
+    </div>
+
+    <!-- Offline Access -->
+    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+      
+      <h2 class="mt-4 text-xl font-semibold text-gray-800">Offline Access</h2>
+      <p class="mt-2 text-gray-600">Access all your travel information offline—maps, bookings, and recommendations available anytime, anywhere.</p>
+    </div>
+  </section>
+
+
+
+   <!-- Section Header -->
+   <section class="text-center py-12 px-6 mt-32 mb-14">
+    <h1 class="text-3xl font-bold text-gray-800">Join Thousands of Happy Travelers</h1>
+    <p class="mt-4 text-gray-600">See how Viora is changing the way people explore the world</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-16 pb-10 ml-32 mr-32">
+    <!-- Testimonial 1 -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="flex items-center mb-4">
+        <img src="../images-viora/51.jpg" alt="Sarah Chen" class="w-16 h-16 rounded-full">
+        <div class="ml-4">
+          <h2 class="text-lg font-semibold text-gray-800">Sarah Chen</h2>
+          <p class="text-sm text-gray-600">Digital Nomad</p>
+        </div>
+      </div>
+      <p class="text-gray-600">Viora transformed how I travel. The cultural quests led me to amazing local experiences I would've never found otherwise. It's like having a local friend in every city!</p>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="flex items-center mb-4">
+        <img src="../images-viora/4.jpg" alt="Marcus Rodriguez" class="w-16 h-16 rounded-full">
+        <div class="ml-4">
+          <h2 class="text-lg font-semibold text-gray-800">Marcus Rodriguez</h2>
+          <p class="text-sm text-gray-600">Adventure Seeker</p>
+        </div>
+      </div>
+      <p class="text-gray-600">The Cultural Impact Meter helped me make more conscious travel choices. I feel like I'm contributing positively to the places I visit now.</p>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="flex items-center mb-4">
+        <img src="../images-viora/7.jpg" alt="Emma Thompson" class="w-16 h-16 rounded-full">
+        <div class="ml-4">
+          <h2 class="text-lg font-semibold text-gray-800">Emma Thompson</h2>
+          <p class="text-sm text-gray-600">Sustainable Travel Advocate</p>
+        </div>
+      </div>
+      <p class="text-gray-600">Finally, a travel app that considers both the traveler's experience and the destination's well-being. The crowd monitoring feature is a game-changer!</p>
+    </div>
+  </section>
+
+
+   <!-- Call-to-Action Section -->
+   <section class="bg-black text-white text-center py-16 px-6 mt-36 ml-48 mr-48 rounded-lg">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Travel Experience?</h1>
+    <p class="text-gray-400 text-lg mb-6">Join 50,000+ conscious travelers exploring the world authentically</p>
+    <a href="#"
+      class="bg-white text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-200 transition">
+      Start Free Trial
+    </a>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-50 text-gray-600 py-8 px-6 mt-20">
+    <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+      <!-- Logo and Copyright -->
+      <div class="flex items-center mb-6 sm:mb-0">
+        <img src="../images-viora/yeBTsj-viora-ob4W.webp" alt="Viora Logo" class="mr-3 h-8">
+        <div>
+          <p class="font-semibold text-gray-800">Viora</p>
+          <p class="text-sm">Copyright © 2024<br>All rights reserved</p>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="text-center sm:text-right">
+        <a href="#" class="text-gray-600 hover:text-gray-900 text-sm">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+
 </body>
 </html>
