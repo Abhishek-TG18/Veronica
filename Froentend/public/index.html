@@ -23,7 +23,7 @@
       <img src="../images-viora/yeBTsj-viora-ob4W.webp" alt="Viora Logo" class="h-8">
       <h1 class="ml-4 text-xl font-bold ">Viora</h1>
     </div>
-    <button class="hidden md:block px-6 py-2 bg-black text-white rounded hover:bg-gray-800 mr-32">Get Started</button>
+    <button id="btn" class="hidden md:block px-6 py-2 bg-black text-white rounded hover:bg-gray-800 mr-32">Get Started</button>
   </header>
 
   <!-- Main Section -->
@@ -294,6 +294,12 @@
       </div>
     </div>
   </footer>
+
+  <script> 
+  document.querySelector("#btn").addEventListener("click" ,()=>{
+    window.location.href="Sign_up.html"
+  })
+  </script>
 
 
 </body>
