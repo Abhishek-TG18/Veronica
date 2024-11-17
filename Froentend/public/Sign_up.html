@@ -101,7 +101,7 @@
 
         const loginUser = async (user) => {
             try {
-                const res = await fetch("http://localhost:808/api/auth/signin", {
+                const res = await fetch("https://veronica-backend.uc.r.appspot.com/api/auth/signin", {
                     method: "POST",
                     credentials: "include",
                     headers: { "Content-Type": "application/json" },
@@ -121,7 +121,7 @@
 
         const SignInUser = async (user) => {
             try {
-                const res = await fetch("http://localhost:808/api/auth/signup", {
+                const res = await fetch("https://veronica-backend.uc.r.appspot.com/api/auth/signup", {
                     method: "POST",
                     credentials: "include",
                     headers: { "Content-Type": "application/json" },

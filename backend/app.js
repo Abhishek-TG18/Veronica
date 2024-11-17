@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('dotenv');
 
 const authRouter = require('./router/authRoute.js');
 const databaseconnect = require('./config/databaseConfig.js');
@@ -13,7 +14,7 @@ app.use(express.json());
 app.use(cookieParser()); 
 
 const corsOptions = {
-  origin: 'http://127.0.0.1:5502', 
+  origin: `${process.env.CLIENT_URL}`, 
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   credentials: true 
 };
