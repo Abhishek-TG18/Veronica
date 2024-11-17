@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .road-pattern {
+            background: repeating-linear-gradient(
+                180deg,
+                #4B5563 0px,
+                #4B5563 20px,
+                #FCD34D 20px,
+                #FCD34D 40px
+            );
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+   
+     <!-- navbar  -->
+<header class="flex justify-between items-center p-5 bg-white shadow fixed z-30 top-0 w-full">
+    <div class="flex items-center ml-32">
+      <img src="../images-viora/yeBTsj-viora-ob4W.webp" alt="Logo" class="h-8"> <!-- Replace with your logo path -->
+      <h1 class="ml-4 text-xl font-bold text-black">Viora</h1>
+    </div>
+    <nav class="flex space-x-6 text-gray-800 font-medium">
+      <a href="./home.html" class="hover:text-gray-500 mr-4">Home</a>
+      <a href="./travelmate.html" class="hover:text-orange-400 mr-4 text-yellow-600">TravelMate</a>
+      <a href="./explore.html" class="hover:text-gray-500 mr-4">Explore</a>
+    </nav>
+    <div class="flex justify-between items-center">
+        <a href="./mytrips.html" class="hover:text-gray-500 mr-4">My Trips</a>
+        <a href="./dashboard.html" class="hidden md:block px-6 py-2 bg-black text-white rounded hover:bg-gray-600 mr-14">Dashboard</a>
+    </div>
+  </header>
+  
+
+    <!-- Banner Section -->
+    <section class="relative h-[60vh] mt-20">
+        <img src="../images-viora/paris-1.webp" alt="Paris" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative h-full flex flex-col justify-center items-center text-white text-center p-6">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Explore Paris</h1>
+            <p class="max-w-2xl text-lg md:text-xl">
+                The city of lights awaits you! Experience the charm of its streets,
+                the history of its landmarks, and the vibrance of its culture.
+                We recommend 5 days to explore the top attractions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Itinerary Timeline Section -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Your Paris Itinerary</h2>
+        
+        <!-- Timeline Container -->
+        <div class="relative">
+            <!-- Unique Road Design - Center Line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-8 road-pattern rounded-full"></div>
+
+            <!-- Checkpoint 1 - Left -->
+            <div class="relative mb-24">
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- Content Left -->
+                    <div class="flex-1 w-full md:w-1/2 mb-8 md:mb-0 md:pr-16">
+                        <div class="p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                            <img src="../images-viora/p-1.jpeg" alt="Eiffel Tower" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Eiffel Tower</h3>
+                            <p class="text-gray-600 mb-4">The iconic landmark of Paris. Perfect for a romantic visit or a photo-worthy experience.</p>
+                            <div class="space-y-2">
+                                <p class="text-gray-700"><span class="font-semibold">Best Time:</span> Early evening for sunset views</p>
+                                <p class="flex items-center"><span class="font-semibold mr-2">Crowd Level:</span>
+                                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Moderate</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Checkpoint Circle -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full border-4 border-white shadow-xl z-10">
+                            <span class="text-white font-bold flex items-center justify-center h-full">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkpoint 2 - Right -->
+            <div class="relative mb-24">
+                <div class="flex flex-col md:flex-row-reverse items-center">
+                    <!-- Content Right -->
+                    <div class="flex-1 w-full md:w-1/3 mb-8 md:mb-0 md:pl-16">
+                        <div class="p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                            <img src="../images-viora/p2.jpeg" alt="Louvre Museum" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Louvre Museum</h3>
+                            <p class="text-gray-600 mb-4">Home to the Mona Lisa and countless other artistic treasures.</p>
+                            <div class="space-y-2">
+                                <p class="text-gray-700"><span class="font-semibold">Best Time:</span> Morning on weekdays</p>
+                                <p class="flex items-center"><span class="font-semibold mr-2">Crowd Level:</span>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-sm">High</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Checkpoint Circle -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full border-4 border-white shadow-xl z-10">
+                            <span class="text-white font-bold flex items-center justify-center h-full">2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkpoint 3 - Left -->
+            <div class="relative mb-24">
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- Content Left -->
+                    <div class="flex-1 w-full md:w-1/2 mb-8 md:mb-0 md:pr-16">
+                        <div class="p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                            <img src="../images-viora/p3.jpeg" alt="Notre Dame" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Notre Dame Cathedral</h3>
+                            <p class="text-gray-600 mb-4">A masterpiece of Gothic architecture with stunning interiors.</p>
+                            <div class="space-y-2">
+                                <p class="text-gray-700"><span class="font-semibold">Best Time:</span> Early afternoon</p>
+                                <p class="flex items-center"><span class="font-semibold mr-2">Crowd Level:</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Low</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Checkpoint Circle -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full border-4 border-white shadow-xl z-10">
+                            <span class="text-white font-bold flex items-center justify-center h-full">3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkpoint 4 - Right -->
+            <div class="relative mb-24">
+                <div class="flex flex-col md:flex-row-reverse items-center">
+                    <!-- Content Right -->
+                    <div class="flex-1 w-full md:w-1/2 mb-8 md:mb-0 md:pl-16">
+                        <div class="p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                            <img src="../images-viora/p4.jpeg" alt="Montmartre" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Montmartre</h3>
+                            <p class="text-gray-600 mb-4">A charming hilltop neighborhood known for its art, cafes, and stunning views.</p>
+                            <div class="space-y-2">
+                                <p class="text-gray-700"><span class="font-semibold">Best Time:</span> Sunset</p>
+                                <p class="flex items-center"><span class="font-semibold mr-2">Crowd Level:</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Low</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Checkpoint Circle -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full border-4 border-white shadow-xl z-10">
+                            <span class="text-white font-bold flex items-center justify-center h-full">4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-6 ">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Travel Budget Tracker</h1>
+        
+        <!-- Budget Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h2 class="text-sm text-gray-600">Total Budget</h2>
+                <p class="text-2xl font-bold text-blue-600">$3,000</p>
+            </div>
+            <div class="bg-green-50 p-4 rounded-lg">
+                <h2 class="text-sm text-gray-600">Spent</h2>
+                <p class="text-2xl font-bold text-green-600">$1,200</p>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+                <h2 class="text-sm text-gray-600">Remaining</h2>
+                <p class="text-2xl font-bold text-purple-600">$1,800</p>
+            </div>
+        </div>
+
+        <!-- Add Expense Form -->
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Add Expense</h2>
+            <form class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <input type="text" placeholder="Description" class="p-2 border rounded-lg">
+                <select class="p-2 border rounded-lg">
+                    <option>Transportation</option>
+                    <option>Accommodation</option>
+                    <option>Food</option>
+                    <option>Activities</option>
+                    <option>Other</option>
+                </select>
+                <input type="number" placeholder="Amount" class="p-2 border rounded-lg">
+                <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                    Add Expense
+                </button>
+            </form>
+        </div>
+
+        <!-- Expense List -->
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Expenses</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4">2024-11-15</td>
+                            <td class="px-6 py-4">Flight Tickets</td>
+                            <td class="px-6 py-4">Transportation</td>
+                            <td class="px-6 py-4">$600</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4">2024-11-15</td>
+                            <td class="px-6 py-4">Hotel Booking</td>
+                            <td class="px-6 py-4">Accommodation</td>
+                            <td class="px-6 py-4">$400</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4">2024-11-16</td>
+                            <td class="px-6 py-4">Restaurant</td>
+                            <td class="px-6 py-4">Food</td>
+                            <td class="px-6 py-4">$200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Budget Distribution Chart -->
+        <div>
+            <h2 class="text-xl font-semibold mb-4">Budget Distribution</h2>
+            <canvas id="budgetChart" class="w-48 h-48"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Initialize chart
+        const ctx = document.getElementById('budgetChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Transportation', 'Accommodation', 'Food', 'Activities', 'Other'],
+                datasets: [{
+                    data: [600, 400, 200, 0, 0],
+                    backgroundColor: [
+                        '#3B82F6',
+                        '#10B981',
+                        '#F59E0B',
+                        '#8B5CF6',
+                        '#6B7280'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- Accommodation Section -->
+    <section id="accommodation" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Where to Stay</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Luxury -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="../images-viora/h1.jpeg" alt="Luxury Hotel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Luxury</h3>
+                        <ul class="space-y-2">
+                            <li>Four Seasons George V</li>
+                            <li>Ritz Paris</li>
+                            <li>Plaza Athénée</li>
+                        </ul>
+                        <p class="mt-4 text-gray-600">€500+ per night</p>
+                    </div>
+                </div>
+                <!-- Mid-range -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="../images-viora/h2.jpeg" alt="Mid-range Hotel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mid-range</h3>
+                        <ul class="space-y-2">
+                            <li>Citadines Les Halles</li>
+                            <li>Hotel Jeanne d'Arc</li>
+                            <li>K+K Hotel Cayré</li>
+                        </ul>
+                        <p class="mt-4 text-gray-600">€150-300 per night</p>
+                    </div>
+                </div>
+                <!-- Budget -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="../images-viora/h3.jpeg" alt="Budget Hotel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Budget</h3>
+                        <ul class="space-y-2">
+                            <li>Generator Hostel</li>
+                            <li>St Christopher's Inn</li>
+                            <li>Le Regent Montmartre</li>
+                        </ul>
+                        <p class="mt-4 text-gray-600">€30-150 per night</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Cuisine Section -->
+    <section id="cuisine" class="py-16 px-4 bg-gray-100">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Must-Try Local Cuisine</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Food items -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="../images-viora/c1.jpeg" alt="Croissant" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Croissants</h3>
+                    <p class="text-gray-600">Best at: Du Pain et des Idées</p>
+                    <p class="mt-2">Fresh, buttery, and flaky morning pastries</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="../images-viora/c2.jpeg" alt="Coq au Vin" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Coq au Vin</h3>
+                    <p class="text-gray-600">Best at: Bistrot Paul Bert</p>
+                    <p class="mt-2">Classic French chicken braised in wine</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="../images-viora/c3.jpeg" alt="Macarons" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Macarons</h3>
+                    <p class="text-gray-600">Best at: Ladurée</p>
+                    <p class="mt-2">Colorful meringue-based sandwich cookies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips Section -->
+    <section id="tips" class="py-16 px-4 bg-gray-100">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Essential Travel Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Transportation</h3>
+                    <ul class="space-y-2">
+                        <li>Get a Navigo pass for metro</li>
+                        <li>Download RATP app</li>
+                        <li>Consider bike-sharing</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Best Time to Visit</h3>
+                    <ul class="space-y-2">
+                        <li>Spring (March to May)</li>
+                        <li>Fall (September to November)</li>
+                        <li>Avoid peak summer crowds</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Money Saving Tips</h3>
+                    <ul class="space-y-2">
+                        <li>Buy Museum Pass</li>
+                        <li>Book accommodations early</li>
+                        <li>Look for prix fixe menus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Previous sections remain the same until Activities -->
+
+    <!-- Enhanced Activities Section -->
+    <section id="activities" class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Must-Try Activities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Activity Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showModal: false }">
+                    <img src="../images-viora/act-1.jpg" alt="Eiffel Tower" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Eiffel Tower</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Available</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Best time: Sunset</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-blue-600">€26.10</span>
+                            <span class="text-sm text-gray-500">per person</span>
+                        </div>
+                        <button 
+                            @click="showModal = true"
+                            class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Book Now
+                        </button>
+
+                        <!-- Booking Modal -->
+                        <div x-show="showModal" class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
+                            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                <div class="fixed inset-0 transition-opacity" @click="showModal = false">
+                                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                </div>
+                                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                        <h3 class="text-lg font-bold mb-4">Book Eiffel Tower Visit</h3>
+                                        <form class="space-y-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Date</label>
+                                                <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Time Slot</label>
+                                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                                    <option>09:00 AM</option>
+                                                    <option>11:00 AM</option>
+                                                    <option>2:00 PM</option>
+                                                    <option>4:00 PM</option>
+                                                    <option>Sunset (7:00 PM)</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Number of Visitors</label>
+                                                <input type="number" min="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 sm:ml-3 sm:w-auto sm:text-sm">
+                                            Confirm Booking
+                                        </button>
+                                        <button type="button" @click="showModal = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showModal: false }">
+                    <img src="../images-viora/act-3.webp" alt="Eiffel Tower" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Eiffel Tower</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Available</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Best time: Sunset</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-blue-600">€26.10</span>
+                            <span class="text-sm text-gray-500">per person</span>
+                        </div>
+                        <button 
+                            @click="showModal = true"
+                            class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Book Now
+                        </button>
+
+                        <!-- Booking Modal -->
+                        <div x-show="showModal" class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
+                            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                <div class="fixed inset-0 transition-opacity" @click="showModal = false">
+                                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                </div>
+                                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                        <h3 class="text-lg font-bold mb-4">Book Eiffel Tower Visit</h3>
+                                        <form class="space-y-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Date</label>
+                                                <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Time Slot</label>
+                                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                                    <option>09:00 AM</option>
+                                                    <option>11:00 AM</option>
+                                                    <option>2:00 PM</option>
+                                                    <option>4:00 PM</option>
+                                                    <option>Sunset (7:00 PM)</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Number of Visitors</label>
+                                                <input type="number" min="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 sm:ml-3 sm:w-auto sm:text-sm">
+                                            Confirm Booking
+                                        </button>
+                                        <button type="button" @click="showModal = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showModal: false }">
+                    <img src="../images-viora/act-2.jpg" alt="Eiffel Tower" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Eiffel Tower</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Available</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Best time: Sunset</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-blue-600">€26.10</span>
+                            <span class="text-sm text-gray-500">per person</span>
+                        </div>
+                        <button 
+                            @click="showModal = true"
+                            class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Book Now
+                        </button>
+
+                        <!-- Booking Modal -->
+                        <div x-show="showModal" class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
+                            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                <div class="fixed inset-0 transition-opacity" @click="showModal = false">
+                                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                </div>
+                                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                        <h3 class="text-lg font-bold mb-4">Book Eiffel Tower Visit</h3>
+                                        <form class="space-y-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Date</label>
+                                                <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Time Slot</label>
+                                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                                    <option>09:00 AM</option>
+                                                    <option>11:00 AM</option>
+                                                    <option>2:00 PM</option>
+                                                    <option>4:00 PM</option>
+                                                    <option>Sunset (7:00 PM)</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Number of Visitors</label>
+                                                <input type="number" min="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 sm:ml-3 sm:w-auto sm:text-sm">
+                                            Confirm Booking
+                                        </button>
+                                        <button type="button" @click="showModal = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar structure for other activities -->
+                <!-- Add more activity cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- New Monthly Events Section -->
+    <section id="events" class="py-16 px-4 bg-gray-100">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">What's On This Month</h2>
+            
+            <!-- Month Selector -->
+            <div class="flex justify-center mb-8">
+                <select id="monthSelector" class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="../images-viora/img4.jpg" alt="Event" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 m-2 rounded-full text-sm">
+                            Featured
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Paris Fashion Week</h3>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Fashion</span>
+                        </div>
+                        <div class="flex items-center mb-4 text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>March 1-8, 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Experience the latest in haute couture at various venues across Paris.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">€150</span>
+                            <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                                Get Tickets
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="../images-viora/img1.jpg" alt="Event" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 m-2 rounded-full text-sm">
+                            Free Entry
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Art in the Park</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Culture</span>
+                        </div>
+                        <div class="flex items-center mb-4 text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>Every Weekend</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Local artists showcase their work in Luxembourg Gardens.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">Free</span>
+                            <button class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="../images-viora/img2.jpg" alt="Event" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 m-2 rounded-full text-sm">
+                            Featured
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Paris Fashion Week</h3>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Fashion</span>
+                        </div>
+                        <div class="flex items-center mb-4 text-sm text-gray-600">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>March 1-8, 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Experience the latest in haute couture at various venues across Paris.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">€150</span>
+                            <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                                Get Tickets
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- footer  -->
+
+
+
+<footer class="bg-white dark:bg-black mt-32">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+              <a href="https://flowbite.com/" class="flex items-center">
+                  <img src="../images-viora/yeBTsj-viora-ob4W.webp" class="h-8 me-3" alt="FlowBite Logo" />
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Viora</span>
+              </a>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="https://flowbite.com/" class="hover:underline">Viora</a>
+                      </li>
+                      <li>
+                          <a href="https://tailwindcss.com/" class="hover:underline">Explore</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
+                      </li>
+                      <li>
+                          <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline">Privacy Policy</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Viora™</a>. All Rights Reserved.
+          </span>
+          <div class="flex mt-4 sm:justify-center sm:mt-0">
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
+                    </svg>
+                  <span class="sr-only">Facebook page</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
+                        <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                    </svg>
+                  <span class="sr-only">Discord community</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                    <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
+                </svg>
+                  <span class="sr-only">Twitter page</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="sr-only">GitHub account</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
+                </svg>
+                  <span class="sr-only">Dribbble account</span>
+              </a>
+          </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Add this script before closing body tag -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Month selector functionality
+        document.getElementById('monthSelector').addEventListener('change', function(e) {
+            // Add your logic to fetch and display events for the selected month
+            console.log('Selected month:', e.target.value);
+        });
+    </script>
+
+</body>
+</html>
