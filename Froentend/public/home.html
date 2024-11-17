@@ -437,9 +437,11 @@
 </footer>
 
 <script>
+    
   // Check if it's the first visit by checking the localStorage flag
 if (!localStorage.getItem("hasVisited")) {
     // If it's the first visit, show the confirmation dialog
+    alert("ಬೆಂಗಳೂರಿಗೆ ಸ್ವಾಗತ")
     if (confirm("Do you want to know about this place?")) {
         // Redirect to the information page if OK is pressed
         window.location.href = "./redirect.html"; // Replace with your desired URL
