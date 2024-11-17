@@ -1,0 +1,16 @@
+/* userdashboard.css */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+aside {
+    transition: width 0.3s;
+}
+
+nav ul li a {
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #3b82f6; /* Tailwind's blue-500 */
+}
