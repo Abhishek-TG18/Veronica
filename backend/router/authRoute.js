@@ -19,4 +19,5 @@ authRouter.post("/resetpassword/:token", resetPassword);
 authRouter.get("/user", jwtAuth, getUser);
 authRouter.get("/logout", jwtAuth, logout);
 
+
 module.exports = authRouter;

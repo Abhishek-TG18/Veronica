@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="s_style.css">
-    <link rel="shortcut icon" href="../images-viora/yeBTsj-viora-ob4W.webp" type="image/x-icon">
     <title>Viora</title>
 </head>
 
@@ -22,11 +21,12 @@
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registeration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" id="name">
+                <input type="email" placeholder="Email" id="email">
+                <input type="password" placeholder="Password" id="password">
+                <input type="password" placeholder="Confirm Password" id="confirm-password">
+                <button type="button" id="btn1">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -39,22 +39,20 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" placeholder="Email" id="email1">
+                <input type="password" placeholder="Password" id="password1">
                 <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <button type="button" id="btn2">Sign In</button>
             </form>
         </div>
-        <div class="toggle-container ">
+        <div class="toggle-container">
             <div class="toggle">
-                <div class="toggle-panel toggle-left ">
-                    <img src="../images-viora/yeBTsj-viora-ob4W.webp" height="50" width="50" alt="" >
+                <div class="toggle-panel toggle-left">
                     <h1>Welcome Back!</h1>
                     <p>Enter your personal details to use all of site features</p>
                     <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <img src="../images-viora/yeBTsj-viora-ob4W.webp" height="50" width="50" alt="" >
                     <h1>Hello, Friend!</h1>
                     <p>Register with your personal details to use all of site features</p>
                     <button class="hidden" id="register">Sign Up</button>
@@ -64,6 +62,83 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        const email1 = document.querySelector("#email1");
+        const password1 = document.querySelector("#password1");
+        const btn2 = document.querySelector("#btn2");
+
+        const name = document.querySelector("#name");
+        const email = document.querySelector("#email");
+        const password = document.querySelector("#password");
+        const confirmPassword = document.querySelector("#confirm-password");
+        const btn1 = document.querySelector("#btn1");
+
+        btn1.addEventListener("click", () => {
+            if (password.value !== confirmPassword.value) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            const userData = {
+                name: name.value,
+                email: email.value,
+                password: password.value,
+                confirmPassword: confirmPassword.value, // Include confirmPassword
+            };
+
+            console.log("Sign Up Data:", userData);
+            SignInUser(userData);
+        });
+
+        btn2.addEventListener("click", () => {
+            const loginData = {
+                email: email1.value,
+                password: password1.value,
+            };
+            console.log("Sign In Data:", loginData);
+            loginUser(loginData);
+        });
+
+        const loginUser = async (user) => {
+            try {
+                const res = await fetch("http://localhost:808/api/auth/signin", {
+                    method: "POST",
+                    credentials: "include",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(user)
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    window.location.href = "./home.html";
+                } else {
+                    alert(data.message);
+                }
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        };
+
+        const SignInUser = async (user) => {
+            try {
+                const res = await fetch("http://localhost:808/api/auth/signup", {
+                    method: "POST",
+                    credentials: "include",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(user)
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    window.location.href = "./home.html";
+                } else {
+                    alert(data.message);
+                }
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        };
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore Shopping Malls</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .loading {
+            display: none;
+        }
+        .loading.active {
+            display: inline-flex;
+        }
+        .mall-list {
+            display: none;
+        }
+        .mall-list.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4"> Shopping Malls</h1>
+            <p class="text-gray-600 mb-6">
+                Discover shopping malls near your location!
+            </p>
+            
+            <!-- Search Button -->
+            <button 
+                onclick="findMalls()"
+                id="searchBtn"
+                class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-200">
+                Find Shopping Malls
+            </button>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="loading mt-4 justify-center items-center text-purple-600">
+                <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Loading...
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="hidden text-center text-red-500 mb-4"></div>
+
+        <!-- Results Grid -->
+        <div id="mallList" class="mall-list grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Mall cards will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        async function findMalls() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const mallList = document.getElementById('mallList');
+            const searchBtn = document.getElementById('searchBtn');
+
+            loading.classList.add('active');
+            error.classList.add('hidden');
+            mallList.innerHTML = '';
+            searchBtn.disabled = true;
+
+            if (!navigator.geolocation) {
+                error.textContent = 'Geolocation is not supported by your browser.';
+                error.classList.remove('hidden');
+                loading.classList.remove('active');
+                searchBtn.disabled = false;
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                const API_KEY = '33c12daa592a464fb22abecbcbcbd029';
+                
+                try {
+                    const response = await fetch(
+                        `https://api.geoapify.com/v2/places?categories=commercial.shopping_mall&filter=circle:${longitude},${latitude},5000&bias=proximity:${longitude},${latitude}&limit=20&apiKey=${API_KEY}`
+                    );
+                    
+                    const data = await response.json();
+
+                    if (data.features && data.features.length > 0) {
+                        mallList.classList.add('active');
+                        data.features.forEach(mall => {
+                            const properties = mall.properties;
+                            const card = `
+                                <div class="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-200 border border-gray-100">
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-3">${properties.name || 'Unnamed Mall'}</h3>
+                                    
+                                    <div class="space-y-2">
+                                        <p class="text-gray-600">
+                                            <span class="font-medium">Distance:</span> 
+                                            ${(getDistance(latitude, longitude, properties.lat, properties.lon)).toFixed(2)} km
+                                        </p>
+                                        
+                                        ${properties.opening_hours ? `
+                                            <p class="text-gray-600">
+                                                <span class="font-medium">Hours:</span><br>
+                                                ${properties.opening_hours}
+                                            </p>
+                                        ` : ''}
+                                        
+                                        ${properties.phone ? `
+                                            <p class="text-gray-600">
+                                                <span class="font-medium">Phone:</span><br>
+                                                ${properties.phone}
+                                            </p>
+                                        ` : ''}
+                                        
+                                        <p class="text-gray-600">
+                                            <span class="font-medium">Address:</span><br>
+                                            ${properties.formatted || 'No address available'}
+                                        </p>
+                                        
+                                        ${properties.website ? `
+                                            <p class="text-gray-600">
+                                                <span class="font-medium">Website:</span><br>
+                                                <a href="${properties.website}" target="_blank" class="text-purple-600 hover:text-purple-800 underline">
+                                                    Visit Website
+                                                </a>
+                                            </p>
+                                        ` : ''}
+                                    </div>
+
+                                    <div class="mt-4 text-sm text-gray-500">
+                                        <p>
+                                            <span class="font-medium">Coordinates:</span>
+                                            ${properties.lat.toFixed(4)}°N, ${properties.lon.toFixed(4)}°E
+                                        </p>
+                                    </div>
+                                </div>
+                            `;
+                            mallList.innerHTML += card;
+                        });
+                    } else {
+                        error.textContent = 'No shopping malls found in this area';
+                        error.classList.remove('hidden');
+                    }
+                } catch (err) {
+                    error.textContent = 'Error fetching shopping mall data. Please try again.';
+                    error.classList.remove('hidden');
+                } finally {
+                    loading.classList.remove('active');
+                    searchBtn.disabled = false;
+                }
+            }, () => {
+                error.textContent = 'Unable to retrieve your location. Please allow location access.';
+                error.classList.remove('hidden');
+                loading.classList.remove('active');
+                searchBtn.disabled = false;
+            });
+        }
+
+        // Function to calculate distance between two points
+        function getDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Earth's radius in km
+            const dLat = deg2rad(lat2 - lat1);
+            const dLon = deg2rad(lon2 - lon1);
+            const a = 
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        function deg2rad(deg) {
+            return deg * (Math.PI/180);
+        }
+    </script>
+</body>
+</html>
